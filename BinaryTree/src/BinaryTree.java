@@ -18,7 +18,7 @@ public class BinaryTree{
 
     int idx = -1;                             //INDEX TO KEEP THE CHECK;
     public Node createTree( int[] nodes ){
-        idx ++;                               // increment idx to get next element:nodes[idx] each time
+        idx++;                               // increment idx to get next element:nodes[idx] each time
         if( nodes[idx] == -1 ){
             return null;
         }
@@ -27,6 +27,15 @@ public class BinaryTree{
         newNode.right = createTree(nodes);        // recursion call for right child of nodes.
 
         return newNode;                           // returns the root of the BinaryTree.
+    }
+
+    public static void display(Node root){
+        if( root == null ){
+            return;
+        }
+        display(root.left);
+        System.out.print(root.data + " ");
+        display(root.right);
     }
 
     // TYPES OF TRAVERSALS:
